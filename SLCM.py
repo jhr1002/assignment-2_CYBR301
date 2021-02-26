@@ -20,4 +20,8 @@ def getusername_paswd():
     else:
         return None,None
 
+def main():
+    getusername_paswd();
 
+if __name__ == "__main__":
+    main()
