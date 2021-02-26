@@ -22,11 +22,11 @@ def getusername_paswd():
         validboth = False
 
     if validboth:
-        print('Valid username of: '+ username)
+        print('Valid username of: ' + username)
         print('Valid password of: ' + password)
         return username, password
     else:
-        print('Invalid username of: '+ username)
+        print('Invalid username of: ' + username)
         print('Invalid password of: ' + password)
         return None,None
 
