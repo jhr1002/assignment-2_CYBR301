@@ -32,6 +32,11 @@ def getusername_paswd():
 
 def secure_store(username, password):
     print(username + password)
+    eusername = username
+    epassword = password
+    f = open("crednetial.dat", "a")
+    f.write(eusername + epassword)
+    f.close()
 
 def main():
     username = ""
