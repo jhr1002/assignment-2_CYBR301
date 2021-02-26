@@ -1,6 +1,7 @@
 #Anthony Colon Jake Rowe
 
 def getusername_paswd():
+    validboth = False
     #We need to use inputs for user and password
     username=input("Username:")
     password=input("Password:")  #We can write the rules here if needed but not in directions
@@ -11,9 +12,9 @@ def getusername_paswd():
         validboth = False
     if not any(char.isdigit() for char in password): #This should be for if there us no numbers
         validboth = False
-    if not any(char.isupper() for char in password): #Requiers uppercase in password
+    if not any(char.isupper() for char in password): #Requires uppercase in password
         validboth = False
-    if not any(char.islower() for char in password): #Requiers lowercase
+    if not any(char.islower() for char in password): #Requires lowercase
         validboth = False
     if not any(char in SpecialChar for char in password):
         validboth = False
