@@ -28,7 +28,7 @@ def getusername_paswd():
     else:
         print('Invalid username of: ' + username)
         print('Invalid password of: ' + password)
-        return None,None
+        return None, None
 
 def main():
     getusername_paswd();
