@@ -30,8 +30,14 @@ def getusername_paswd():
         print('Invalid password of: ' + password)
         return None, None
 
+def secure_store(username, password):
+    print(username + password)
+
 def main():
-    getusername_paswd();
+    username = ""
+    password = ""
+    username, password = getusername_paswd();
+    secure_store(username, password);
 
 if __name__ == "__main__":
     main()
