@@ -22,6 +22,8 @@ def getusername_paswd():
         validboth = False
 
     if validboth:
+        print('Valid username of: '+ username)
+        print('Valid password of: ' + password)
         return username, password
     else:
         return None,None
