@@ -27,11 +27,11 @@ def getusername_paswd():
     if validboth:
         print('Valid username of: ' + username)
         print('Valid password of: ' + password)
-        return username, password
+        return username, password, 1
     else:
         print('Invalid username of: ' + username)
         print('Invalid password of: ' + password)
-        return None, None
+        return None, None, 0
 
 def secure_store(username, password):
     data = b'password'
@@ -47,19 +47,11 @@ def secure_store(username, password):
     f.flush()
     f.close()
 
-    #file = open("assignment-2_CYBR301/credential.dat", "wb")
-    #file.write(cipher.nonce)
-    #file.write(tag)
-    #file.write(ciphered_data)
-    #file.write("\n\n\n")
-    #file.flush()
-    #file.close()
     print("Username and Password stored in credential.dat")
 def main():
-    username, password = getusername_paswd();
-    if username != None:
-        if password != None:
-            secure_store(username, password);
+    username, password, result= getusername_paswd();
+    if result == 1:
+        secure_store(username, password);
 
 if __name__ == "__main__":
     main()
