@@ -56,10 +56,10 @@ def secure_store(username, password):
     #file.close()
     print("Username and Password stored in credential.dat")
 def main():
-    username = ""
-    password = ""
     username, password = getusername_paswd();
-    secure_store(username, password);
+    if username != None:
+        if password != None:
+            secure_store(username, password);
 
 if __name__ == "__main__":
     main()
