@@ -1,8 +1,6 @@
 #Anthony Colon Jake Rowe
 import base64
-import hashlib
-#from Crypto import Random
-#from Crypto.Cipher import AES
+from Cryptodome.Cipher import AES
 def getusername_paswd():
     validboth = True
 
@@ -36,12 +34,26 @@ def getusername_paswd():
         return None, None
 
 def secure_store(username, password):
-    eusername = username
-    epassword = password
-    f = open("assignment-2_CYBR301/credential.dat", "a")
-    f.write(eusername + " " + epassword + "\n")
+    data = b'password'
+    key = b'1234567890123456'
+    cipher = AES.new(key, AES.MODE_EAX)
+    ciphered_data, tag = cipher.encrypt_and_digest(data)
+
+    encoded_data = base64.b64encode(ciphered_data)
+
+    f = open("assignment-2_CYBR301/credential.dat", "ab")
+    f.write(username.encode())
+    f.write(encoded_data)
     f.flush()
     f.close()
+
+    #file = open("assignment-2_CYBR301/credential.dat", "wb")
+    #file.write(cipher.nonce)
+    #file.write(tag)
+    #file.write(ciphered_data)
+    #file.write("\n\n\n")
+    #file.flush()
+    #file.close()
     print("Username and Password stored in credential.dat")
 def main():
     username = ""
