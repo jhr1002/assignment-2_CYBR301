@@ -1,5 +1,8 @@
 #Anthony Colon Jake Rowe
-
+import base64
+import hashlib
+from Crypto import Random
+from Crypto.Cipher import AES
 def getusername_paswd():
     validboth = True
 
@@ -34,6 +37,12 @@ def getusername_paswd():
 
 def secure_store(username, password):
     print(username + password)
+    key = 'bigandchunky'
+    IV = 16 * '\x00'  # Initialization vector: discussed later
+    mode = AES.MODE_CBC
+    encryptor = AES.new(key, mode, IV=IV)
+    text = password
+    ciphertext = encryptor.encrypt(text)
     eusername = username
     epassword = password
     f = open("crednetial.dat", "a")
