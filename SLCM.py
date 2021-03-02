@@ -2,24 +2,26 @@
 
 def getusername_paswd():
     validboth = True
-    #We need to use inputs for user and password
-    username=input("Username:")
-    password=input("Password:")  #We can write the rules here if needed but not in directions
 
-#This is where we have to validate using if and if not any statements for user name and password
+    username=input("Username:")
+    password=input("Password:")
+
     SpecialChar=['#','@','%','*']
+    Email=['@']
     if len(password)<8:
         validboth = False
-    if not any(char.isdigit() for char in password): #This should be for if there us no numbers
+    if not any(char.isdigit() for char in password):
         validboth = False
-    if not any(char.isupper() for char in password): #Requires uppercase in password
+    if not any(char.isupper() for char in password):
         validboth = False
-    if not any(char.islower() for char in password): #Requires lowercase
-        validboth = False
-    if not any(char in SpecialChar for char in password):
+    if not any(char.islower() for char in password):
         validboth = False
     if not any(char in SpecialChar for char in password):
         validboth = False
+    if not any(char in SpecialChar for char in password):
+        validboth = False
+    if not any(char in Email for char in username):
+        validboth=False
 
     if validboth:
         print('Valid username of: ' + username)
