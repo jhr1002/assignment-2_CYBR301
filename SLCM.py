@@ -38,7 +38,7 @@ def getusername_paswd():
 def secure_store(username, password):
     print(username + password)
     key = 'bigandchunky'
-    IV = 16 * '\x00'  # Initialization vector: discussed later
+    IV = 16 * '\x00'
     mode = AES.MODE_CBC
     encryptor = AES.new(key, mode, IV=IV)
     text = password
