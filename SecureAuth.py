@@ -26,7 +26,7 @@ def secure_hashed_passwd(username, passwd):
     pepper = "Hibblehooble69hahafunny"
     dk = hashlib.pbkdf2_hmac('sha256', b'passwd', b'salt', 100000)
     dk.hex()
-    saltpepperdigest = "J"
+    saltpepperdigest = ""
     #return salt,pepper,saltpepperdigest
     return salt, pepper, saltpepperdigest
 
