@@ -47,19 +47,17 @@ def verify_hashed_passwd(username, passwd):
         valid1 = False
         valid2 = False
         fields = line.split(",")
+        hpasswd = fields[3]
         if (username == fields[0])
             valid1 = True
-        if (hpasswd == fields[3])
+        tempo_hash = hash('sha-3-224',passwd)
+        if (tempo_hash == hpasswd)
             valid2 = True
-        if (valid1 == True && valid2 == True)
+        if (valid1 == True & valid2 == True)
             return True
         else
             print("Authentication Unsuccessful!")
             return False
-        tempo_hash = hash('sha-3-224',passwd)
-        if (tempo_hash == hpasswd)
-
-            return True
     fd.close
     #To read the file line by line, use a for loop.
     #Hint: split each line by a comma "," to get list of username, salt, pepper, and stored_hashpassword values.
