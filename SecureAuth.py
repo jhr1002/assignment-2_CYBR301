@@ -17,15 +17,16 @@ def secure_hashed_passwd(username, passwd):
     :param passwd: a plain text password
     :return: True if given values are stored successfully in outfile var; else returns False
     '''
-
+    id = uuid.uuid1()
 
     #use salt and pepper to hash 'hpasswd' using sha-3-224 algorithm
     # Add salt
-
+    salt = hashlib.sha224(os.urandom(60)).hexdigest().encode('hex')
     # add pepper
-
+    pepper = "Hibblehooble69hahafunny"
+    saltpepperdigest = hashlib.sha224(pepper . salt . passwd)
     #return salt,pepper,saltpepperdigest
-
+    return salt, pepper, saltpepperdigest
 
 def verify_hashed_passwd(username, passwd):
     '''
@@ -41,7 +42,11 @@ def verify_hashed_passwd(username, passwd):
     #open the file to read
     fd=open(infile,"r")
     #read the infile line by line to retrive a matching row with first field value of username
+    for line in fd:
+        fields = line.split(",")
+        username = fields[0]
 
+    fd.close
     #To read the file line by line, use a for loop.
     #Hint: split each line by a comma "," to get list of username, salt, pepper, and stored_hashpassword values.
     #implement other logics inside loop.
