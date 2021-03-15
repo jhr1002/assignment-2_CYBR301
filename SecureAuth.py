@@ -48,15 +48,15 @@ def verify_hashed_passwd(username, passwd):
         valid2 = False
         fields = line.split(",")
         hpasswd = fields[3]
-        if (username == fields[0])
+        if (username == fields[0]):
             valid1 = True
         tempo_hash = hash('sha-3-224',passwd)
-        if (tempo_hash == hpasswd)
+        if (tempo_hash == hpasswd):
             valid2 = True
             print("Authentication Successful")
-        if (valid1 == True & valid2 == True)
+        if (valid1 == True & valid2 == True):
             return True
-        else
+        else:
             print("Authentication Unsuccessful!")
             return False
     fd.close
