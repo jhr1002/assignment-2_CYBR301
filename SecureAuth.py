@@ -53,6 +53,7 @@ def verify_hashed_passwd(username, passwd):
         tempo_hash = hash('sha-3-224',passwd)
         if (tempo_hash == hpasswd)
             valid2 = True
+            print("Authentication Successful")
         if (valid1 == True & valid2 == True)
             return True
         else
