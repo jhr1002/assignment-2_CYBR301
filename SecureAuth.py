@@ -22,12 +22,9 @@ def secure_hashed_passwd(username, passwd):
     #use salt and pepper to hash 'hpasswd' using sha-3-224 algorithm
     # Add salt
     salt = "supersaltyhaha68whoops"
-    salt.encode('hex')
     # add pepper
     pepper = "Hibblehooble69hahafunny"
-    pepper.encode('hex')
     saltpepperdigest = hashlib.sha224(pepper . salt . passwd)
-    saltpepperdigest.encode('hex')
     #return salt,pepper,saltpepperdigest
     return salt, pepper, saltpepperdigest
 
