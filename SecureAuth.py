@@ -24,7 +24,9 @@ def secure_hashed_passwd(username, passwd):
     salt = "supersaltyhaha68whoops"
     # add pepper
     pepper = "Hibblehooble69hahafunny"
-    saltpepperdigest = hashlib.sha224(pepper . salt . passwd)
+    dk = hashlib.pbkdf2_hmac('sha256', b'passwd', b'salt', 100000)
+    dk.hex()
+    saltpepperdigest = ""
     #return salt,pepper,saltpepperdigest
     return salt, pepper, saltpepperdigest
 
@@ -50,7 +52,7 @@ def verify_hashed_passwd(username, passwd):
         hpasswd = fields[3]
         if (username == fields[0]):
             valid1 = True
-        tempo_hash = hash('sha-3-224',passwd)
+        tempo_hash = hashlib.pbkdf2_hmac('sha256', b'passwd', b'salt', 100000)
         if (tempo_hash == hpasswd):
             valid2 = True
             print("Authentication Successful")
