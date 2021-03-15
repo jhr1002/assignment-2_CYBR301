@@ -49,11 +49,12 @@ def verify_hashed_passwd(username, passwd):
         fields = line.split(",")
         if (username == fields[0])
             valid1 = True
-        if (password == fields[3])
+        if (hpasswd == fields[3])
             valid2 = True
         if (valid1 == True && valid2 == True)
             return True
         else
+            print("Authentication Unsuccessful!")
             return False
     fd.close
     #To read the file line by line, use a for loop.
