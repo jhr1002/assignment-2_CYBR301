@@ -42,10 +42,19 @@ def verify_hashed_passwd(username, passwd):
     #open the file to read
     fd=open(infile,"r")
     #read the infile line by line to retrive a matching row with first field value of username
-    for line in fd:
-        fields = line.split(",")
-        username = fields[0]
 
+    for line in fd:
+        valid1 = False
+        valid2 = False
+        fields = line.split(",")
+        if (username == fields[0])
+            valid1 = True
+        if (password == fields[3])
+            valid2 = True
+        if (valid1 == True && valid2 == True)
+            return True
+        else
+            return False
     fd.close
     #To read the file line by line, use a for loop.
     #Hint: split each line by a comma "," to get list of username, salt, pepper, and stored_hashpassword values.
